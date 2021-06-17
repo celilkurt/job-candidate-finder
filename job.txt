@@ -1,0 +1,41 @@
+Join us if you DISAGREE and want to shape the future yourself!
+
+We need a top-notch Data Scientist with the ambition to create the technology that changes the world. The technology that makes history, and decodes the future while transforming the present... Already excited? Then we’d like to know you better!
+
+Our team will be a perfect fit for you, if you're a multi-dimensional IT expert ready to join a high performance, large scale, geographically dispersed ecosystem, as we become a global e-commerce player with the vision to be the greatest gifting company in the world!
+
+About You:
+
+You possess exceptional analytical and conceptual thinking skills
+You have a passion for data science, machine learning and artificial intelligence
+You're a humble, hardworking and self-learner profile with an insatiable curiosity
+You're preferably familiar with e-commerce ecosystem
+
+Minimum Requirements:
+
+BSc degree in Computer/Industrial Engineering or similar academic disciplines
+Proficiency at MSSQL, MySQL, MongoDB
+Competency and considerable experience in Python
+Experience in creating and deploying machine learning systems and pipelines would be a great asset
+Fundamentals in predictive modeling, statistics and ML techniques, libraries and frameworks (NumPy, Pandas, Scikit-learn, SciPy, Anaconda and Jupyter Notebook etc.)
+Fluency in English (written & spoken)
+
+Nice-to-have Qualifications:
+
+Experience in relational databases
+Experience in ETL pipeline implementations and maintenance by using SSIS
+Exposure to Docker and Containerization ecosystem
+Experience in TensorFlow, SageMaker
+Exposure to machine learning, big data ecosystem and technologies would be preferable (Spark, Hadoop, Hive etc.)
+Experience in AWS EC2, Beanstalk, Lambda, S3 and deploying ML services to cloud
+Experience in distributed computing, messaging and event driven architectures
+Familiarity with graph databases
+Competency in C, C++, Scala and Elasticsearch
+
+What we offer:
+
+Working remotely
+Dynamic work ecosystem where you can take initiative and responsibility
+Enjoyable team/company activities
+Netflix, BluTV, YouTube Premium and portable modem
+Dress code: you can wear whatever you want
