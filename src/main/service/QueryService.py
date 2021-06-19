@@ -8,7 +8,7 @@ from src.main.entity.Query import Query
 from src.main.dao.elastic.ElasticWriter import ElasticWriter
 from datetime import datetime, timedelta
 
-from src.main.service.webscraper.WebCrawlerI import WebCrawlerI
+from src.main.service.webscraper.WebScraperI import WebScraperI
 
 class QueryService():
 
@@ -23,7 +23,7 @@ class QueryService():
         return ' OR '.join(keyword_list)
 
     @staticmethod
-    def run_query_for_each_scraper(q: Query, crawler_list: List[WebCrawlerI], elastic: ElasticWriter, key_finder: KeywordFinder, cv_count: int) -> []:
+    def run_query_for_each_scraper(q: Query, crawler_list: List[WebScraperI], elastic: ElasticWriter, key_finder: KeywordFinder, cv_count: int) -> []:
         elastic_query_for_ranking = QueryService.get_elastic_query_for_semantic_search(q.keywords)
         scraping_keywords_str: str = q.to_str_without_labels()
 

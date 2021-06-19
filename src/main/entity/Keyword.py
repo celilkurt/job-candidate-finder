@@ -1,5 +1,7 @@
 
-
+'''
+NLP modeli çıktılarının tutulması için
+'''
 class Keyword:
 
     label: str

@@ -5,7 +5,7 @@ from src.main.entity.CVMetadata import CVMetadata
 from src.main.entity.Query import Query
 
 
-class WebCrawlerI:
+class WebScraperI:
     topic: str
     """
     Güncellik kontrolü yapılabilmesi için CV id ve CV URL'i gibi

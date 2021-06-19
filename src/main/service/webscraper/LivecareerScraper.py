@@ -8,10 +8,10 @@ from src.main.dao.DataSourceI import DataSourceI
 from src.main.dao.elastic.ElasticWriter import ElasticWriter
 from src.main.entity.CVMetadata import CVMetadata
 from src.main.entity.Query import Query
-from src.main.service.webscraper.WebCrawlerI import WebCrawlerI
+from src.main.service.webscraper.WebScraperI import WebScraperI
 
 
-class LivecareerScraper(WebCrawlerI):
+class LivecareerScraper(WebScraperI):
     __elas_writer = None
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
@@ -118,10 +118,6 @@ class LivecareerScraper(WebCrawlerI):
         return cv_elems
 
 
-    """
-    'sink' şimdilik sadece elasticsearch olabilir. Daha sonra eklenen başka veri tabanları da olabilir.
-    'sink' DataSource adında bir class'ın subclass'ı olarak tanımlanmalı
-    """
 
     def save_cvs_to_sink(self, cv_list: [], sink: DataSourceI):
 
@@ -135,8 +131,3 @@ class LivecareerScraper(WebCrawlerI):
 
         source.get_data_by_keywords(self.topic, keywords)
 
-    """ 
-    Scraper'lar yukarıdaki metodları implement etmeli
-    CV entity'lerinin tanımlanması gerek,
-    DAO'ler için bir interface tanımlanmalı
-    """

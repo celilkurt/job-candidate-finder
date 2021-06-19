@@ -9,13 +9,13 @@ from src.main.entity.Keyword import Keyword
 from src.main.entity.Query import Query
 from src.main.service.KeywordFinder import KeywordFinder
 from src.main.service.QueryService import QueryService
-from src.main.service.webscraper import CrawlerListBuilder
+from src.main.service.webscraper import ScraperListBuilder
 from src.main.service.CandidateAPIService import CandidateAPIService
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-crawler_list = CrawlerListBuilder.get_crawler_list()
+crawler_list = ScraperListBuilder.get_scraper_list()
 logging.basicConfig(level=logging.INFO)
 key_finder = KeywordFinder()
 elastic = ElasticWriter()

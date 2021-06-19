@@ -11,7 +11,7 @@ class KeywordFinder:
     __valid_labels = ['ORG', 'GPE', 'PERSON', 'WORK_OF_ART', 'PRODUCT', 'SKILLS']
 
     def __init__(self):
-        self.__model = spacy.load('/home/celil/Desktop/web-crawler/model/model_15_05_21')  # /home/celil/Desktop/web-crawler/en_core_web_md-3.0.0/en_core_web_md/en_core_web_md-3.0.0
+        self.__model = spacy.load('/home/celil/Desktop/job-candidate-finder/model/model_15_05_21')
 
     def find_keys(self, cv: str) -> List[Keyword]:
 
@@ -43,7 +43,6 @@ class KeywordFinder:
         cv = re.sub("\'s", " ", cv)  # "Sam is" or "Sam's" 's i siliyoruz
         cv = re.sub(r"(\W|^)([0-9]+)[kK](\W|$)", r"\1\g<2>000\3", cv)
         cv = re.sub("\(s\)", " ", cv, flags=re.IGNORECASE)
-        cv = re.sub("[c-fC-F]\:\/", " disk ", cv)
 
         # Sayılar arasındaki ,'ü kaldır.
         cv = re.sub('(?<=[0-9])\,(?=[0-9])', "", cv)

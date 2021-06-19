@@ -1,16 +1,15 @@
 from typing import List
 
 from src.main.dao.DataSourceI import DataSourceI
-from src.main.entity.CV import CV
 from src.main.entity.CVMetadata import CVMetadata
 from src.main.entity.Query import Query
-from src.main.service.webscraper.WebCrawlerI import WebCrawlerI
+from src.main.service.webscraper.WebScraperI import WebScraperI
 from src.main.service.webscraper.jobspider.CVUtil import CVUtil
 from src.main.service.webscraper.jobspider.TableUtil import TableUtil
 from src.main.service.webscraper.jobspider.URLBuilder import URLBuilder
 
 
-class JobSpiderCrawler(WebCrawlerI):
+class JobSpiderScraper(WebScraperI):
     __url_builder: URLBuilder
     __cv_util: CVUtil()
     __table_util: TableUtil
@@ -39,7 +38,7 @@ class JobSpiderCrawler(WebCrawlerI):
         except:
             pass
 
-    def get_cvs(self, filtered_cv_list: List[CVMetadata], limit: int) -> List[CV]:
+    def get_cvs(self, filtered_cv_list: List[CVMetadata], limit: int) -> []:
         return self.__cv_util.get_cvs(filtered_cv_list, limit)
 
     """

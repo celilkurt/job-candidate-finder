@@ -6,11 +6,11 @@ from src.main.entity.Keyword import Keyword
 from src.main.service.KeywordFinder import KeywordFinder
 from src.main.entity.CVMetadata import CVMetadata
 from src.main.entity.Query import Query
-from src.main.service.webscraper import CrawlerListBuilder
+from src.main.service.webscraper import ScraperListBuilder
 from src.main.dao.elastic.ElasticWriter import ElasticWriter
 from datetime import datetime, timedelta
 
-from src.main.service.webscraper.WebCrawlerI import WebCrawlerI
+from src.main.service.webscraper.WebScraperI import WebScraperI
 
 '''
 Metadata'sı elde edilen cv'lerden elimizde olanlar kafka'ya yazılır
@@ -33,7 +33,7 @@ def get_elastic_query_for_semantic_search(keywords: List[Keyword]) -> str:
     return ' OR '.join(keyword_list)
 
 
-def run_query_for_each_crawler(q: Query, crawler_list: List[WebCrawlerI]):
+def run_query_for_each_crawler(q: Query, crawler_list: List[WebScraperI]):
     elastic_query_for_ranking = get_elastic_query_for_semantic_search(q.keywords)
     scraping_keywords_str: str = q.to_str_without_labels()
 
@@ -144,7 +144,7 @@ def get_text_file_as_string(path: str):
 
 
 def main():
-    crawler_list = CrawlerListBuilder.get_crawler_list()
+    crawler_list = ScraperListBuilder.get_scraper_list()
     logging.basicConfig(level=logging.INFO)
 
     job_text = get_text_file_as_string('../../job.txt')

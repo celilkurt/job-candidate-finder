@@ -6,9 +6,6 @@ from src.main.entity.Keyword import Keyword
 class Query:
     keywords: List[Keyword]
 
-    '''
-    Sorgu keyword'ler şeklinde yapılırsa
-    '''
     def __init__(self, keywords_str: str):
         for keyword in keywords_str.split(" "):
             self.keywords.append(Keyword('', keyword))
