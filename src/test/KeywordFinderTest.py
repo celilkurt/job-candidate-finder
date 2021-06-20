@@ -29,7 +29,7 @@ class KeyFinderTest(unittest.TestCase):
     # elasticsearch = ElasticWriter()
     # cv_list = self.elasticsearch.get_data_by_keywords('test', 'scala java sql maven')
 
-    def test_fin_keys(self):
+    def test_is_model_work(self):
 
         keywords: List[Keyword] = self.key_finder.find_keys(self.cv_str)
         print(self.cv_str)

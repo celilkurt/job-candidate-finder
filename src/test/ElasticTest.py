@@ -13,7 +13,9 @@ class ElasticTest(unittest.TestCase):
 
     def test_cv_id_extraction(self):
         url = 'https://www.jobspider.com/job/view-resume-81871.html'
-        self.e_writer.save_cv_id_with_date('81871')
-        time.sleep(2)
-        result = self.e_writer.get_creation_date_by_cv_id('81871')
-        print(str(result))
+        cvs: [] = self.e_writer.get_data_by_keywords_and_field('test', 'keyword_for_empty_result')
+
+        for cv in cvs:
+            print(cv['id'])
+        print('Elasticsearch bağlantısı başarılı!')
+

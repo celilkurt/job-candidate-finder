@@ -1,5 +1,5 @@
-from random import random
-from typing import List
+import random
+from typing import List, Dict
 
 from flask import jsonify
 
@@ -12,16 +12,11 @@ class CandidateAPIService:
 
     @staticmethod
     def get_optional_cv_count(request_data, default_value) -> int:
-        cv_count: int
+        cv_count: int = default_value
         if 'cv_count' in request_data:
             cv_count = int(request_data['cv_count'])
-        else:
-            cv_count = default_value
 
-        if cv_count > 0:
-            return cv_count
-        else:
-            return 1
+        return cv_count
 
     @staticmethod
     def create_query_from_job_text(job_text: str, key_finder: KeywordFinder) -> Query:
@@ -31,17 +26,22 @@ class CandidateAPIService:
 
     @staticmethod
     def create_response_entity(candidates: []):
-        max_score = 0
-        if len(candidates) != 0:
-            max_score = candidates[0]['score']
+        max_score = CandidateAPIService.get_max_score_from_sorted_cv_list(candidates)
         response = {'cv_count': len(candidates), 'max_score': max_score, 'candidates': candidates}
         return jsonify(response)
 
+    @staticmethod
+    def get_max_score_from_sorted_cv_list(candidates: List[Dict]) -> int:
+        if len(candidates) != 0:
+            return candidates[0]['score']
+        else:
+            return 0
 
     @staticmethod
-    def create_key_list(keywords_str: str) -> List[Keyword]:
+    def create_keyword_list(keywords_str: str) -> List[Keyword]:
         keyword_list = []
         if keywords_str:
             keyword_list = [keyword.strip() for keyword in keywords_str.split(',')]
 
         return [Keyword('', keyword) for keyword in keyword_list]
+

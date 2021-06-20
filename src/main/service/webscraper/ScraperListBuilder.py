@@ -5,7 +5,6 @@ from src.main.service.webscraper.JobSpiderScraper import JobSpiderScraper
 from os import walk
 import importlib
 
-module = importlib.import_module('src.main.service.webscraper')
 scrapers_root_directory = '/home/celil/Desktop/job-candidate-finder/src/main/service/webscraper'
 
 

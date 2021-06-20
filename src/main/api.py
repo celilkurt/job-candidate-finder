@@ -37,7 +37,7 @@ def get_candidates_by_job():
 @app.route('/api/v1/candidates_by_keywords', methods=['GET'])
 def get_candidates_by_keywords():
     request_data = request.get_json()
-    keyword_list: List[Keyword] = CandidateAPIService.create_key_list(request_data['keywords'])
+    keyword_list: List[Keyword] = CandidateAPIService.create_keyword_list(request_data['keywords'])
     cv_count = CandidateAPIService.get_optional_cv_count(request_data, default_response_cv_count)
 
     query = Query(key_list=keyword_list)
