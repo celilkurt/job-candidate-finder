@@ -17,25 +17,7 @@ logging.critical('This is a critical message')
 
 class TableUtil:
     __urlBuilder = URLBuilder()
-    '''
-    URL: Arama sonucunun listelendiği sayfanın URL'i.
-    İlk aşamada verilen adresten html sayfasını çeker. 
-    Bu sayfanın arama sonuç sayfası olması beklenir.
-    Sayfa, en fazla 50 CV içeren bir tablo içerir.
-    Tablodaki URL'ler elde edilir ve herbiri için aşağıdaki işlemler yapılır.
-        - URL bir CV'nin detay sayfasıdır.
-        - Sayfa içeriği 'getCVByURL' fonksiyonu ile string tipinde elde edilir.
-        - CV text formatında kaydedilir.
-    '''
 
-    '''
-        cv'leri içeren bir tablo ve pagination
-        linkleri olduğu varsayılan bir url alır.
-    '''
-    '''
-            örnek pagination_urls elemanı: '/job/resume-search-results.asp'
-            örnek full_url: 'https..jobspider.com/job/resume...'
-    '''
 
     def get_cv_urls(self, url) -> List[str]:
         pagination_urls: list = self.get_pagination_urls(url)
@@ -71,7 +53,7 @@ class TableUtil:
         filtered_list = filtered_list[0: -1]
         # filtered_list'deki url'ler page 2'den başlıyor, filtered_list'e ilk sayfanın url'i de ekleniyor.
         filtered_list.append(url[25:])
-        return filtered_list[:10]
+        return filtered_list[:6]
 
     def __filter_urls(self, urls, prefix) -> List[str]:
         new_list: list = []

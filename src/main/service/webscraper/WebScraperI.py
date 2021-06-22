@@ -12,7 +12,7 @@ class WebScraperI:
     bilgileri içeren list'i döndürür.
     """
 
-    def get_crawling_candid_metadata(self, query: Query) -> List[CVMetadata]:
+    def get_scraping_candid_metadata(self, query: Query) -> List[CVMetadata]:
         pass
 
     """
@@ -27,7 +27,7 @@ class WebScraperI:
     'sink' DataSource adında bir class'ın subclass'ı olarak tanımlanmalı
     """
 
-    def save_cvs_to_sink(self, cv_list: [], sink: DataSourceI):
+    def save_cvs_to_datasource(self, cv_list: [], sink: DataSourceI):
         pass
 
     def get_cvs_by_keywords_from_source(self, keywords: List[str], source: DataSourceI):

@@ -23,7 +23,7 @@ class LivecareerScraper(WebScraperI):
         self.__elas_writer = ElasticWriter()
         self.topic = topic
 
-    def get_crawling_candid_metadata(self, query: Query) -> List[CVMetadata]:
+    def get_scraping_candid_metadata(self, query: Query) -> List[CVMetadata]:
         keywords_param = query.to_str_without_labels().replace(' ', '%20')
         search_url = "https://www.livecareer.com/resume-search/search?jt=" + keywords_param
 
@@ -119,7 +119,7 @@ class LivecareerScraper(WebScraperI):
 
 
 
-    def save_cvs_to_sink(self, cv_list: [], sink: DataSourceI):
+    def save_cvs_to_datasource(self, cv_list: [], sink: DataSourceI):
 
         for cv_temp in cv_list:
             self.__elas_writer.save_data(index="test", cv=cv_temp)

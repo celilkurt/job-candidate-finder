@@ -20,7 +20,7 @@ class JobSpiderScraper(WebScraperI):
         self.__url_builder = URLBuilder()
         self.__cv_util = CVUtil()
 
-    def get_crawling_candid_metadata(self, query: Query) -> List[CVMetadata]:
+    def get_scraping_candid_metadata(self, query: Query) -> List[CVMetadata]:
         keywords_str = query.to_str_without_labels()
         search_page_url = self.__url_builder.get_search_url_by_keys_and_type(keywords_str, '2')
 
@@ -45,14 +45,14 @@ class JobSpiderScraper(WebScraperI):
         Kafka'nın ilgili topic'ine cv'ler yazdırılır.
         """
 
-    def save_cvs_to_sink(self, cv_list: [], sink: DataSourceI):
-        sink.save_all_data(index='test', data=cv_list)
+    def save_cvs_to_datasource(self, cv_list: [], sink: DataSourceI):
+        sink.save_all_data(index='test', cvs=cv_list)
 
     '''
     Kafka'ya yazar
     '''
 
     def get_cvs_by_keywords_from_source(self, keywords: List[str], source: DataSourceI):
-        source.get_data_by_keywords(self.topic, keywords)
+        source.get_data_by_keywords(self.topic, ' '.join(keywords))
 
 

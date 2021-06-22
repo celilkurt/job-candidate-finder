@@ -11,7 +11,7 @@ from src.main.service.KeywordFinder import KeywordFinder
 class CandidateAPIService:
 
     @staticmethod
-    def get_optional_cv_count(request_data, default_value) -> int:
+    def get_cv_count_for_response(request_data, default_value) -> int:
         cv_count: int = default_value
         if 'cv_count' in request_data:
             cv_count = int(request_data['cv_count'])
@@ -19,7 +19,7 @@ class CandidateAPIService:
         return cv_count
 
     @staticmethod
-    def create_query_from_job_text(job_text: str, key_finder: KeywordFinder) -> Query:
+    def create_query_obj_from_job_text(job_text: str, key_finder: KeywordFinder) -> Query:
         keyword_list: List[Keyword] = key_finder.find_keys(job_text)
         random.shuffle(keyword_list)
         return Query(key_list=keyword_list)
